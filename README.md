@@ -11,7 +11,7 @@ benchcall catches that before a real caller does. It reads your agent's config, 
 ## Quickstart (5 minutes, one LLM key)
 
 ```bash
-git clone <this repo> && cd benchcall-oss
+git clone https://github.com/Sammsamy/benchcall && cd benchcall
 npm install && npm run build
 cp .env.example .env        # add ONE key: ANTHROPIC / OPENAI / GOOGLE / OPENROUTER
 node runner/dist/cli.js run \

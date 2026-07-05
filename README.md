@@ -2,6 +2,8 @@
 
 **Automated test suites for AI voice agents.**
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Node >= 20](https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg)](package.json) [![Site](https://img.shields.io/badge/site-benchcall.ai-blue.svg)](https://benchcall.ai)
+
 ![benchcall catching regressions a prompt edit introduced](assets/demo.svg)
 
 You built a phone agent on [Vapi](https://vapi.ai) or [Retell](https://retellai.com). It sounds great when you call it yourself. Then you tweak the prompt on a Tuesday and it quietly starts making up prices.

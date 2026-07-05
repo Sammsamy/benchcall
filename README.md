@@ -30,7 +30,7 @@ node runner/dist/cli.js run --suite suite.json --platform vapi --agent <id>
 node runner/dist/cli.js report
 ```
 
-`generate` builds a suite from your agent's own config: its obligations, its rules, its call flow. That part runs through the hosted benchcall service (free tier, set `BENCHCALL_SERVER_URL`). Everything else runs on your machine. **Transcripts never leave it.** Only scores sync to your dashboard, and only if you turn syncing on.
+`generate` builds a suite from your agent's own config: its obligations, its rules, its call flow. That part runs through the hosted benchcall service (free tier, set `BENCHCALL_SERVER_URL`). Everything else runs on your machine. **Transcripts never leave it.** Only scores and verdicts sync to your dashboard, never call content (the sync format has no field for it). Syncing is on when a dashboard is configured; turn it off any time with `--no-sync` or `BENCHCALL_SYNC=off`.
 
 More commands: `score-calls` grades real production calls against your agent's own rules. `fix` turns failed tests into a suggested prompt patch, which is never applied without your say so. `calibrate` lets you grade the judge, and agreement gets tracked. `evidence` exports a testing report you can hand a client. `run --if-changed` is for cron jobs, it only runs when the agent's config actually changed.
 

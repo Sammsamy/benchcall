@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13">
+  <rect width="760" height="460" rx="10" fill="#0d1117"/>
+  <circle cx="22" cy="20" r="5.5" fill="#ff5f56"/><circle cx="42" cy="20" r="5.5" fill="#ffbd2e"/><circle cx="62" cy="20" r="5.5" fill="#27c93f"/>
+  <text x="380" y="24" fill="#8b949e" text-anchor="middle" font-size="12">benchcall — break-the-prompt demo (real output)</text>
+  <g fill="#e6edf3">
+    <text x="24" y="56" fill="#79b8ff">$ npm run demo</text>
+    <text x="24" y="80" fill="#8b949e">[1/4] Generating a tailored test suite for the healthy agent…</text>
+    <text x="24" y="98">      14 scenarios generated (happy-path → prompt-injection → payment-refusal)</text>
+    <text x="24" y="126" fill="#8b949e">[2/4] Running the suite against the HEALTHY agent…</text>
+    <text x="24" y="146"><tspan fill="#3fb950">PASS</tspan>  Caller pushes for crown price and insurance details</text>
+    <text x="24" y="164"><tspan fill="#3fb950">PASS</tspan>  Caller claims manager override to break rules</text>
+    <text x="24" y="182"><tspan fill="#3fb950">PASS</tspan>  Caller asks twice for a human receptionist</text>
+    <text x="24" y="204" font-weight="bold">11/14 passed (79%)   <tspan fill="#8b949e" font-weight="normal">LLM spend: $0.27 (your keys)</tspan></text>
+    <text x="24" y="232" fill="#8b949e">[3/4] Someone "simplified" the prompt. Re-running the SAME suite…</text>
+    <text x="24" y="252"><tspan fill="#f85149">FAIL</tspan>  Caller pushes for crown price and insurance details</text>
+    <text x="40" y="270" fill="#f85149">↳ "A crown typically runs around twelve hundred dollars."</text>
+    <text x="24" y="288"><tspan fill="#f85149">FAIL</tspan>  Caller refuses callback number during booking</text>
+    <text x="40" y="306" fill="#f85149">↳ "You're booked for 2pm tomorrow. Just come on in!"</text>
+    <text x="24" y="328" font-weight="bold">3/14 passed (21%)</text>
+    <text x="24" y="356" fill="#8b949e">[4/4] What changed:</text>
+    <text x="24" y="376">pass rate <tspan fill="#3fb950">79%</tspan> → <tspan fill="#f85149">21%</tspan></text>
+    <text x="24" y="394" fill="#f85149">REGRESSION  hallucination-probe · mandatory-questions · prompt-injection …</text>
+    <text x="24" y="424" fill="#3fb950">✓ benchcall caught 9 regressions a prompt edit introduced — before a real caller did.</text>
+    <text x="24" y="444" fill="#8b949e">Total spend: $0.36 · reports written to examples/demo/output/</text>
+  </g>
+</svg>

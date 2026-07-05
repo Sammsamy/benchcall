@@ -1,0 +1,11 @@
+{
+  "name": "benchcall-oss",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": ["runner"],
+  "scripts": {
+    "build": "npm run build --workspace runner",
+    "test": "npm run test --workspace runner"
+  },
+  "engines": { "node": ">=20" }
+}

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>benchcall · automated testing for AI voice agents</title>
+<meta name="description" content="Plug in your Vapi or Retell voice agent. Get an automated adversarial test suite, judged scorecards with evidence, drift alerts, and suggested fixes, on your own API keys."/>
+<style>
+  :root { --ink:#101318; --sub:#5b6472; --line:#e6e8ee; --accent:#1f6feb; --pass:#2da44e; --fail:#cf222e; }
+  * { box-sizing: border-box; margin: 0; }
+  body { font: 17px/1.65 -apple-system, 'Segoe UI', Roboto, sans-serif; color: var(--ink); }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 22px; }
+  header { padding: 84px 0 30px; text-align: center; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: .02em; }
+  h1 { font-size: clamp(30px, 5.4vw, 46px); line-height: 1.15; margin: 26px 0 14px; font-weight: 800; }
+  .sub { color: var(--sub); font-size: 19px; max-width: 640px; margin: 0 auto; }
+  .card { background:#0d1117; color:#e6edf3; border-radius: 12px; padding: 22px 26px; margin: 40px auto 8px; max-width: 480px; text-align: left; font: 15px/1.9 ui-monospace, Menlo, monospace; }
+  .card .g { color: #3fb950; } .card .r { color: #f85149; } .card .y { color: #d29922; }
+  .fine { color: var(--sub); font-size: 13px; }
+  .cta { display: inline-block; margin: 26px 8px 0; padding: 13px 26px; border-radius: 9px; font-weight: 700; text-decoration: none; }
+  .cta.primary { background: var(--ink); color: #fff; }
+  .cta.ghost { border: 1.5px solid var(--line); color: var(--ink); }
+  section { padding: 54px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 26px; margin-bottom: 22px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+  .feat { border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+  .feat b { display: block; margin-bottom: 6px; }
+  .feat p { color: var(--sub); font-size: 15px; }
+  pre { background:#f6f8fa; border:1px solid var(--line); border-radius: 10px; padding: 16px 18px; overflow-x: auto; font: 14px/1.7 ui-monospace, Menlo, monospace; }
+  footer { padding: 44px 0 60px; border-top: 1px solid var(--line); color: var(--sub); font-size: 14px; text-align: center; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="logo">🥊 benchcall</div>
+  <h1>Your voice agent sounds great.<br/>Would it survive a hostile caller?</h1>
+  <p class="sub">benchcall reads your Vapi or Retell agent's own config, generates an adversarial test suite tailored to it, runs simulated callers against it live, and judges every transcript with quoted evidence. It all runs on <b>your</b> API keys, and transcripts never leave your machine.</p>
+
+  <div class="card">
+    my voice agent ran the benchcall gauntlet:<br/>
+    <span class="r">🟥🟥🟥</span><span class="g">🟩🟩</span><span class="r">🟥🟥</span><br/>
+    <span class="r">🟥🟥🟥</span><span class="g">🟩🟩</span><span class="r">🟥</span><span class="g">🟩</span><br/>
+    5/14 scenarios survived (36%)<br/>
+    can yours? → benchcall.ai
+  </div>
+  <p class="fine">↑ real result: a major platform's own template agent, tested unmodified</p>
+
+  <a class="cta primary" href="https://github.com/Sammsamy/benchcall">Get started free →</a>
+  <a class="cta ghost" href="#how">How it works</a>
+</header>
+
+<section id="how" class="wrap">
+  <h2>The loop</h2>
+  <div class="grid">
+    <div class="feat"><b>1 · Generate</b><p>benchcall reads your agent's prompt, tools, and flow, then writes the test suite a paranoid QA engineer would: invented-price probes, identity leaks, prompt injection, impossible dates, angry callers.</p></div>
+    <div class="feat"><b>2 · Simulate &amp; judge</b><p>LLM callers with personas run every scenario against your live agent. A judge grades each explicit criterion pass/fail with a quote from the transcript, never a vibes score. You grade the judge, too.</p></div>
+    <div class="feat"><b>3 · Catch &amp; fix</b><p>Change a prompt, get a diff of exactly which behaviors broke, with alerts when it happens overnight. Failed tests become suggested prompt patches you review before applying.</p></div>
+    <div class="feat"><b>4 · Prove it</b><p>Client-ready evidence reports and a live "tested" badge, white-labeled with your agency's name. Show clients their agent works, every month, automatically.</p></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>Try it in 5 minutes</h2>
+  <pre>git clone https://github.com/Sammsamy/benchcall
+cd benchcall &amp;&amp; npm install &amp;&amp; npm run build
+cp .env.example .env   # add ONE LLM key (OpenRouter works)
+node runner/dist/cli.js run \
+  --config examples/sample-agent.json \
+  --suite examples/sample-suite.json</pre>
+  <p class="fine">The runner is MIT open source. Suite generation tailored to <i>your</i> agent runs on our hosted service, free tier, bring your own LLM key, we never mark up inference.</p>
+</section>
+
+<section class="wrap" id="about">
+  <h2>Who's behind this</h2>
+  <div style="display:flex; gap:20px; align-items:center; flex-wrap:wrap">
+    <img src="founder.jpg" alt="Fuzlullah Syed" width="96" height="96" style="border-radius:50%; object-fit:cover" onerror="this.style.display='none'"/>
+    <p style="max-width:560px; color:var(--sub)">I'm <b style="color:var(--ink)">Fuzlullah Syed</b>, but everyone calls me Fuz. I'm a third year medical student, and I build benchcall with my brother, a team of two. Clinics like the ones I train in are starting to hand their phones to AI agents, and someone should be testing them. Voice is where we started. The engine underneath is built to benchmark any kind of agent, and that's where we're headed.</p>
+  </div>
+</section>
+
+<footer class="wrap">
+  <p><a href="https://github.com/Sammsamy/benchcall">GitHub</a> · <a href="https://api.benchcall.ai/verify/lakeside-dental">What a verify page looks like</a></p>
+  <p style="margin-top:10px">Testing evidence, not legal advice. No test suite catches every failure, including ours.</p>
+  <p style="margin-top:6px">© 2026 Fuzlullah Syed</p>
+</footer>
+
+</body>
+</html>
